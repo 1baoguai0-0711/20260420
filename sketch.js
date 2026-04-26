@@ -18,7 +18,12 @@ function draw() {
   let x = (width - w) / 2;
   let y = (height - h) / 2;
 
-  image(capture, x, y, w, h);
+  push();
+  // 將座標系移至影像右側並水平翻轉
+  translate(x + w, y);
+  scale(-1, 1);
+  image(capture, 0, 0, w, h);
+  pop();
 }
 
 function windowResized() {
